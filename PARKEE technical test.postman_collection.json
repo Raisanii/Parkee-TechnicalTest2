@@ -1,0 +1,210 @@
+{
+	"info": {
+		"_postman_id": "96d97d09-bf94-4a91-94e4-ca9b0ad0c12f",
+		"name": "PARKEE technical test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "14391866"
+	},
+	"item": [
+		{
+			"name": "Positive case",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "user.sani@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "first_name",
+							"value": "Rai",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "sani",
+							"type": "text"
+						},
+						{
+							"key": "avatar",
+							"type": "file",
+							"src": "xTgg7cWTu/pcg.jpeg"
+						}
+					]
+				},
+				"url": "https://reqres.in/api/users"
+			},
+			"response": []
+		},
+		{
+			"name": "Negative case | Missing Request Body Fields",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400 for Missing Request Body Fields\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "Raisani.test@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "first_name",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "avatar",
+							"type": "file",
+							"src": "fba3t1u-j/A_black_image.jpg"
+						}
+					]
+				},
+				"url": "https://reqres.in/api/users"
+			},
+			"response": []
+		},
+		{
+			"name": "Negative case | Missing response",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Missing response\", function () {\r",
+							"    pm.expect(pm.response.text()).not.to.be.empty;\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "user.sani@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "first_name",
+							"value": "Rai",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "sani",
+							"type": "text"
+						},
+						{
+							"key": "avatar",
+							"type": "file",
+							"src": "KP8hLMFPG/pcg.jpeg"
+						}
+					]
+				},
+				"url": "https://reqres.in/api/users"
+			},
+			"response": []
+		},
+		{
+			"name": "Negative case | Response Not Equals with Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response does not equal request\", function () {\r",
+							"    var requestData = pm.request.body.toJSON();\r",
+							"    var responseData = pm.response.json();\r",
+							"    pm.expect(responseData).to.eql(requestData);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "user.sani@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "first_name",
+							"value": "Rai",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "sani",
+							"type": "text"
+						},
+						{
+							"key": "avatar",
+							"type": "file",
+							"src": "Ja7Z5mGnD/unpadLogo.png"
+						}
+					]
+				},
+				"url": "https://reqres.in/api/users"
+			},
+			"response": []
+		}
+	]
+}
